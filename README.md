@@ -19,6 +19,12 @@ Improve your registration/signup pages with links to user's email provider inbox
 # How to install (composer)
 
     composer require atomasevic/mxlogin
+    
+or add to your project's composer.json
+
+    "require": {
+        "atomasevic/mxlogin": "dev-master"
+    }
 
 # How to use
 
