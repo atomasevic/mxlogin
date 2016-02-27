@@ -16,6 +16,10 @@ Improve your registration/signup pages with links to user's email provider inbox
 * T-Com.hr
 * Iskon.hr
 
+# How to install (composer)
+
+    composer require atomasevic/mxlogin
+
 # How to use
 
     <?php
