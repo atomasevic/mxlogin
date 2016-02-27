@@ -31,7 +31,7 @@ class MXLoginUrls
     public function getLoginData($mxDomain)
     {
         if(!empty($this->mxResolve[$mxDomain])){
-            $providerClass = $this->mxResolve[$mxDomain];
+            $providerClass = 'atomasevic\\MXLogin\\providers\\' . $this->mxResolve[$mxDomain];
             $provider = new $providerClass();
             return $provider->getData();
         } else {
