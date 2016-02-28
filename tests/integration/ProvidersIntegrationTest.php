@@ -12,7 +12,7 @@ class ProvidersIntegrationTest extends \Codeception\TestCase\Test
      * @param $email
      * @param $expectedMxName
      */
-    public function testMxLoginSearch_WithMockedMxDnsRecords($email, $expectedMxName)
+    public function testMxLoginSearch($email, $expectedMxName)
     {
         $mxLogin = new MXLogin();
         $loginData = $mxLogin->search($email);
