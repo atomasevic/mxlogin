@@ -4,11 +4,13 @@
   "version": "0.1.1",
   "description": "Improve your registration/signup pages with links to user's email provider inbox.",
   "keywords": ["email", "registration", "gmail", "hotmail"],
-  "homepage": "",
   "license": "MIT",
   "authors": [{"name": "Antun Tomasevic", "email": "atomasevic@gmail.com", "homepage": "https://mediatoolkit.com", "role": "Developer"}],
   "require": {
     "php": ">=5.3.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "*"
   },
   "autoload": {
     "psr-0": {
