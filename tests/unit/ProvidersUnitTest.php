@@ -38,11 +38,16 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
 
     public function _after()
     {
-        self::$mxDomainMock = null;
+        self::setMxDomainMock(null);
     }
 
     /**
      * @dataProvider mxDomainProvider
+     *
+     * @param $mxDomain
+     * @param $expectedName
+     * @param $expectedCode
+     * @param $expectedLoginUrl
      */
     public function testGetLoginData_GivenSupportedMxDomain_ExpectsToReturnMatchingMxProvider(
         $mxDomain,
