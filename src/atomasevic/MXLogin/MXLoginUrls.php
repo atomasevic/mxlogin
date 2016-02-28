@@ -12,7 +12,7 @@ class MXLoginUrls
     private $mxResolve = [
         'google.com'        => 'GmailMXProvider',
         'googlemail.com'    => 'GmailMXProvider',
-        'yahoodns.com'      => 'YahooMXProvider',
+        'yahoodns.net'      => 'YahooMXProvider',
         'hotmail.com'       => 'OutlookMXProvider',
         'mailinator.com'    => 'MailinatorMXProvider',
         'mail.com'          => 'MailComMXProvider',
