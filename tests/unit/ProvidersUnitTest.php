@@ -2,8 +2,6 @@
 
 namespace atomasevic\MXLogin;
 
-use yii\base\Exception;
-
 function dns_get_mx($domain, &$mxHosts, &$mxWeight)
 {
     $mxHosts[0] = ProvidersUnitTest::getMxDomainMock();
@@ -18,7 +16,7 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
     public static function getMxDomainMock()
     {
         if (self::$mxDomainMock == null) {
-            throw new Exception('mx-domain mock not set');
+            throw new \Exception('mx-domain mock not set');
         }
         return self::$mxDomainMock;
     }
