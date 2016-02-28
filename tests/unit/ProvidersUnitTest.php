@@ -102,7 +102,7 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
             ['some.mail@aol.com', 'aol.com', 'AOL'],
             ['some.mail@degordian.com', 'foo.google.com', 'Gmail'],
             ['some.mail@gmail.com', 'foo.bar.googlemail.com', 'Gmail'],
-            ['some.mail@yahoo.com', 'foo.bar.yahoodns.com', 'Yahoo Mail'],
+            ['some.mail@yahoo.com', 'foo.bar.yahoodns.net', 'Yahoo Mail'],
             ['some.mail@mail.ru', 'foo.mail.ru', 'Mail.ru'],
             ['some.mail@mail.com', 'mail.com', 'Mail.com'],
         ];
