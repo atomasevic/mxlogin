@@ -10,7 +10,7 @@
     "php": ">=5.3.0"
   },
   "require-dev": {
-    "codeception/codeception": "*"
+    "codeception/codeception": "@stable"
   },
   "autoload": {
     "psr-0": {
