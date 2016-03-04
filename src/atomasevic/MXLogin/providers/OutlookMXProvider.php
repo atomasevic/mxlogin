@@ -11,5 +11,5 @@ class OutlookMXProvider extends MXProviderBase
 {
     public $name = 'Outlook';
     public $code = 'atmx-outlook';
-    public $loginUrl = 'http://login.live.com';
+    public $loginUrl = 'https://login.live.com';
 }

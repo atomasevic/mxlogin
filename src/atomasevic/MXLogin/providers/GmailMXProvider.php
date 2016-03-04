@@ -11,5 +11,5 @@ class GmailMXProvider extends MXProviderBase
 {
     public $name = 'Gmail';
     public $code = 'atmx-gmail';
-    public $loginUrl = 'http://mail.google.com';
+    public $loginUrl = 'https://mail.google.com';
 }
