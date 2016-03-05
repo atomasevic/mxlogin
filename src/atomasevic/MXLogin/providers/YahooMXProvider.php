@@ -9,7 +9,38 @@ use atomasevic\MXLogin\MXProviderBase;
 
 class YahooMXProvider extends MXProviderBase
 {
-    public $name = 'Yahoo Mail';
-    public $code = 'atmx-yahoo';
-    public $loginUrl = 'http://mail.yahoo.com';
+    private $name = 'Yahoo Mail';
+    private $code = 'atmx-yahoo';
+    private $loginUrl = 'http://mail.yahoo.com';
+
+    /**
+     * Provider name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Provider unique code
+     *
+     * @return string
+     */
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Provider login url
+     *
+     * @return string
+     */
+    public function getLoginUrl()
+    {
+        return $this->loginUrl;
+    }
 }

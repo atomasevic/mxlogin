@@ -9,7 +9,38 @@ use atomasevic\MXLogin\MXProviderBase;
 
 class NetHrMXProvider extends MXProviderBase
 {
-    public $name = 'Net.hr';
-    public $code = 'atmx-nethr';
-    public $loginUrl = 'http://user.net.hr/';
+    private $name = 'Net.hr';
+    private $code = 'atmx-nethr';
+    private $loginUrl = 'http://user.net.hr/';
+
+    /**
+     * Provider name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Provider unique code
+     *
+     * @return string
+     */
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Provider login url
+     *
+     * @return string
+     */
+    public function getLoginUrl()
+    {
+        return $this->loginUrl;
+    }
 }

@@ -9,7 +9,38 @@ use atomasevic\MXLogin\MXProviderBase;
 
 class IskonHrMXProvider extends MXProviderBase
 {
-    public $name = 'Iskon';
-    public $code = 'atmx-iskonhr';
-    public $loginUrl = 'http://webmail.iskon.hr';
+    private $name = 'Iskon';
+    private $code = 'atmx-iskonhr';
+    private $loginUrl = 'http://webmail.iskon.hr';
+
+    /**
+     * Provider name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Provider unique code
+     *
+     * @return string
+     */
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Provider login url
+     *
+     * @return string
+     */
+    public function getLoginUrl()
+    {
+        return $this->loginUrl;
+    }
 }

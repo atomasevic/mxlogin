@@ -9,7 +9,38 @@ use atomasevic\MXLogin\MXProviderBase;
 
 class MailRuMXProvider extends MXProviderBase
 {
-    public $name = 'Mail.ru';
-    public $code = 'atmx-mailru';
-    public $loginUrl = 'http://e.mail.ru/login';
+    private $name = 'Mail.ru';
+    private $code = 'atmx-mailru';
+    private $loginUrl = 'http://e.mail.ru/login';
+
+    /**
+     * Provider name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Provider unique code
+     *
+     * @return string
+     */
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Provider login url
+     *
+     * @return string
+     */
+    public function getLoginUrl()
+    {
+        return $this->loginUrl;
+    }
 }

@@ -2,36 +2,40 @@
 
 namespace atomasevic\MXLogin;
 
-class MXProviderBase
+abstract class MXProviderBase
 {
     /**
      * Provider name
-     * @var string
+     *
+     * @return string
      */
-    public $name;
+    abstract public function getName();
 
     /**
      * Provider unique code
-     * @var string
+     *
+     * @return string
      */
-    public $code;
+    abstract public function getCode();
 
     /**
      * Provider login url
-     * @var string
+     *
+     * @return string
      */
-    public $loginUrl;
+    abstract public function getLoginUrl();
 
     /**
      * Return provider data
+     *
      * @return array
      */
     public function getData()
     {
         return [
-            'name'  => $this->name,
-            'code'  => $this->code,
-            'loginUrl'  => $this->loginUrl
+            'name'  => $this->getName(),
+            'code'  => $this->getCode(),
+            'loginUrl'  => $this->getLoginUrl()
         ];
     }
 
