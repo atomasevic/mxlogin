@@ -6,23 +6,6 @@ class MXLoginUrls
 {
 
     /**
-     * Resolve MX domain to email provider class
-     * @var array
-     */
-    private $mxResolve = [
-        'google.com'        => 'GmailMXProvider',
-        'googlemail.com'    => 'GmailMXProvider',
-        'yahoodns.net'      => 'YahooMXProvider',
-        'hotmail.com'       => 'OutlookMXProvider',
-        'mailinator.com'    => 'MailinatorMXProvider',
-        'mail.com'          => 'MailComMXProvider',
-        'aol.com'           => 'AolMXProvider',
-        't-com.hr'          => 'TComHrMXProvider',
-        'iskon.hr'          => 'IskonHrMXProvider',
-        'mail.ru'           => 'MailRuMXProvider'
-    ];
-
-    /**
      * Resolve mxDomain to MXProvider
      * and return MXProvider data.
      * @param $mxDomain
@@ -31,7 +14,7 @@ class MXLoginUrls
     public function getLoginData($mxDomain)
     {
         if(!empty($this->mxResolve[$mxDomain])){
-            $providerClass = 'atomasevic\\MXLogin\\providers\\' . $this->mxResolve[$mxDomain];
+            $providerClass = __NAMESPACE__ . '\\providers\\' . $this->mxResolve[$mxDomain];
             $provider = new $providerClass();
             return $provider->getData();
         } else {

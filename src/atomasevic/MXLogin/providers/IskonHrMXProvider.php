@@ -11,7 +11,10 @@ class IskonHrMXProvider extends MXProviderBase
 {
     private $name = 'Iskon';
     private $code = 'atmx-iskonhr';
-    private $loginUrl = 'http://webmail.iskon.hr';
+    private $loginUrl = 'https://webmail.iskon.hr';
+    private $mxDomains = [
+        'iskon.hr'
+    ];
 
     /**
      * Provider name
@@ -42,5 +45,30 @@ class IskonHrMXProvider extends MXProviderBase
     public function getLoginUrl()
     {
         return $this->loginUrl;
+    }
+
+    /**
+     * Array of MX domains this provider
+     * will respond to.
+     *
+     * To get a MX domain, check MX records for domain
+     * and strip everything but top level domain.
+     * Sample:
+     *      In your terminal:
+     *      $ host -t MX gmail.com
+     *
+     *      gmail.com MX lookup, resolved with
+     *      gmail-smtp-in.l.google.com
+     *
+     *      So our mxDomains property will have
+     *      array(
+     *          'google.com'
+     *      )
+     *
+     * @return array
+     */
+    public function getMXDomains()
+    {
+        return $this->mxDomains;
     }
 }
