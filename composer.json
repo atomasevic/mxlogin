@@ -7,7 +7,7 @@
   "license": "MIT",
   "authors": [{"name": "Antun Tomasevic", "email": "atomasevic@gmail.com", "homepage": "https://mediatoolkit.com", "role": "Developer"}],
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.4"
   },
   "require-dev": {
     "codeception/codeception": "@stable"
