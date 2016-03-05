@@ -13,13 +13,8 @@ class MXLoginUrls
      */
     public function getLoginData($mxDomain)
     {
-        if(!empty($this->mxResolve[$mxDomain])){
-            $providerClass = __NAMESPACE__ . '\\providers\\' . $this->mxResolve[$mxDomain];
-            $provider = new $providerClass();
-            return $provider->getData();
-        } else {
-            return null;
-        }
+        $providerManager = new MXProviderManager();
+        return $providerManager->getProviderLoginData($mxDomain);
     }
 
 }
