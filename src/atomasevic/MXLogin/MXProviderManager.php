@@ -18,7 +18,7 @@ class MXProviderManager
 
         foreach ($providerFiles as $providerFile) {
             if(preg_match($providerPattern, $providerFile)){
-                $validProviders[] = 'providers\\' . str_replace('.php', '()', $providerFile);
+                $validProviders[] = __NAMESPACE__ . '\\providers\\' . str_replace('.php', '', $providerFile);
             }
         }
 
@@ -34,7 +34,7 @@ class MXProviderManager
         $providerClasses = self::scanFilesForProviderClasses();
 
         foreach ($providerClasses as $providerClass) {
-            $provider = new $providerClass;
+            $provider = new $providerClass();
             $mxDomains = $provider->getMXDomains();
 
             foreach ($mxDomains as $mxDomain) {
