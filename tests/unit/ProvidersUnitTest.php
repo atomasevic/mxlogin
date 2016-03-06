@@ -68,16 +68,16 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
     public function mxDomainProvider()
     {
         return [
-            ['google.com', 'Gmail', 'atmx-gmail', 'http://mail.google.com'],
-            ['googlemail.com', 'Gmail', 'atmx-gmail', 'http://mail.google.com'],
-            ['yahoodns.net', 'Yahoo Mail', 'atmx-yahoo', 'http://mail.yahoo.com'],
-            ['hotmail.com', 'Outlook', 'atmx-outlook', 'http://login.live.com'],
-            ['mailinator.com', 'Mailinator', 'atmx-mailinator', 'http://www.mailinator.com'],
-            ['mail.com', 'Mail.com', 'atmx-mail-com', 'http://www.mail.com'],
+            ['google.com', 'Gmail', 'atmx-gmail', 'https://mail.google.com'],
+            ['googlemail.com', 'Gmail', 'atmx-gmail', 'https://mail.google.com'],
+            ['yahoodns.net', 'Yahoo Mail', 'atmx-yahoo', 'https://mail.yahoo.com'],
+            ['hotmail.com', 'Outlook', 'atmx-outlook', 'https://login.live.com'],
+            ['mailinator.com', 'Mailinator', 'atmx-mailinator', 'https://www.mailinator.com'],
+            ['mail.com', 'Mail.com', 'atmx-mail-com', 'https://www.mail.com'],
             ['aol.com', 'AOL', 'atmx-aol', 'http://webmail.aol.com'],
-            ['t-com.hr', 'T-Com Komunikator', 'atmx-tcom-hr', 'http://komunikator.tportal.hr/komunikator/'],
-            ['iskon.hr', 'Iskon', 'atmx-iskonhr', 'http://webmail.iskon.hr'],
-            ['mail.ru', 'Mail.ru', 'atmx-mailru', 'http://e.mail.ru/login'],
+            ['t-com.hr', 'T-Com Komunikator', 'atmx-tcom-hr', 'https://komunikator.tportal.hr/komunikator/'],
+            ['iskon.hr', 'Iskon', 'atmx-iskonhr', 'https://webmail.iskon.hr'],
+            ['mail.ru', 'Mail.ru', 'atmx-mailru', 'https://e.mail.ru/login'],
         ];
     }
 
