@@ -7,7 +7,7 @@ namespace atomasevic\MXLogin\providers;
 
 use atomasevic\MXLogin\MXProviderBase;
 
-class TComHRMXProvider extends MXProviderBase
+class TComHrMXProvider extends MXProviderBase
 {
     public $name = 'T-Com Komunikator';
     public $code = 'atmx-tcom-hr';
