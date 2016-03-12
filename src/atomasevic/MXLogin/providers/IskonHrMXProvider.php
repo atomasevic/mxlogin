@@ -11,5 +11,5 @@ class IskonHrMXProvider extends MXProviderBase
 {
     public $name = 'Iskon';
     public $code = 'atmx-iskonhr';
-    public $loginUrl = 'http://webmail.iskon.hr';
+    public $loginUrl = 'https://webmail.iskon.hr';
 }

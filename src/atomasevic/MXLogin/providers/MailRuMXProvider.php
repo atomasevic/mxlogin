@@ -11,5 +11,5 @@ class MailRuMXProvider extends MXProviderBase
 {
     public $name = 'Mail.ru';
     public $code = 'atmx-mailru';
-    public $loginUrl = 'http://e.mail.ru/login';
+    public $loginUrl = 'https://e.mail.ru/login';
 }

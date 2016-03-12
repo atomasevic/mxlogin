@@ -11,5 +11,5 @@ class TComHrMXProvider extends MXProviderBase
 {
     public $name = 'T-Com Komunikator';
     public $code = 'atmx-tcom-hr';
-    public $loginUrl = 'http://komunikator.tportal.hr/komunikator/';
+    public $loginUrl = 'https://komunikator.tportal.hr/komunikator/';
 }

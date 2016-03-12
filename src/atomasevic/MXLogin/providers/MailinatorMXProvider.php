@@ -11,5 +11,5 @@ class MailinatorMXProvider extends MXProviderBase
 {
     public $name = 'Mailinator';
     public $code = 'atmx-mailinator';
-    public $loginUrl = 'http://www.mailinator.com';
+    public $loginUrl = 'https://www.mailinator.com';
 }

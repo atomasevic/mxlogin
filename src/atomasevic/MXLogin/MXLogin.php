@@ -32,12 +32,39 @@ class MXLogin
 {
 
     /**
+     * Email to process
+     * @var null
+     */
+    protected $email = null;
+
+    /**
+     * Instantiate object, set email
+     * @param $email
+     * @return self
+     */
+    public function __construct($email = null)
+    {
+       $this->setEmail($email);
+    }
+
+    /**
+     * Set email for MX lookup
+     * @param null $email
+     */
+    public function setEmail($email = null){
+        $this->email = $email;
+    }
+
+    /**
      * Get data for email provider.
      * @param $email
      * @return array|null
      */
-    public function search($email)
+    public function search($email = null)
     {
+        //Added for backwards compatibility
+        $email = $email == null ? $this->email : $email;
+
         $domain = $this->getDomain($email);
         $mxHosts = [];
         $mxWeight = [];
@@ -72,4 +99,12 @@ class MXLogin
         return implode('.', [$mxParts[$partsCount-2], $mxParts[$partsCount-1]]);
     }
 
+    /**
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->search()['loginUrl'];
+    }
 }
