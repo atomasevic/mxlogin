@@ -8,7 +8,7 @@ class MXProviderManager
     
     const MX_PROVIDERS_DIR = __DIR__ . '/providers';
 
-    private $__map = [];
+    private $map = [];
 
     private static function scanFilesForProviderClasses()
     {
@@ -29,7 +29,7 @@ class MXProviderManager
         return $validProviders;
     }
 
-    private function _fillMap()
+    private function fillMap()
     {
         $providerClasses = self::scanFilesForProviderClasses();
 
@@ -38,20 +38,20 @@ class MXProviderManager
             $mxDomains = $provider->getMXDomains();
 
             foreach ($mxDomains as $mxDomain) {
-                $this->__map[$mxDomain] = $provider;
+                $this->map[$mxDomain] = $provider;
             }
         }
     }
 
     public function __construct()
     {
-        $this->_fillMap();
+        $this->fillMap();
     }
 
     public function getProviderLoginData($mxDomain)
     {
-        if(isset($this->__map[$mxDomain])){
-            return $this->__map[$mxDomain]->getData();
+        if(isset($this->map[$mxDomain])){
+            return $this->map[$mxDomain]->getData();
         } else {
             return null;
         }

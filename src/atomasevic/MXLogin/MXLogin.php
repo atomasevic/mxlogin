@@ -13,11 +13,16 @@ class MXLogin
 
     /**
      * Get data for email provider.
+     *
      * @param $email
      * @return array|null
+     * @throws \Error
      */
     public function search($email)
     {
+        if(!$this->validEmail($email)){
+            throw new \Error("Email is not valid.");
+        }
         $domain = $this->getDomain($email);
         $mxHosts = [];
         $mxWeight = [];
@@ -28,7 +33,20 @@ class MXLogin
     }
 
     /**
+     * Just a basic check for pattern user@domain.tld
+     *
+     * @param $email
+     * @return int
+     */
+    private function validEmail($email)
+    {
+        $validEmailPattern = '/^\S{1,}@\S{1,}[.]\S{1,}$/';
+        return preg_match($validEmailPattern, $email);
+    }
+
+    /**
      * Get domain from email
+     *
      * @param $email
      * @return string
      */
@@ -42,6 +60,7 @@ class MXLogin
      * Extract top level domain from MX record
      * This domain will be used to resolve mapping
      * from domain to MXProvider class.
+     *
      * @param $mxRecord
      * @return string
      */
