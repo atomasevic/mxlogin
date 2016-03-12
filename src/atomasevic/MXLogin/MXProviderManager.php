@@ -2,11 +2,12 @@
 
 namespace atomasevic\MXLogin;
 
+define('MX_PROVIDERS_DIR', __DIR__ . '/providers');
 
 class MXProviderManager
 {
     
-    const MX_PROVIDERS_DIR = __DIR__ . '/providers';
+    const MX_PROVIDERS_DIR = MX_PROVIDERS_DIR;
 
     private $map = [];
 
