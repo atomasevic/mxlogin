@@ -76,7 +76,7 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
             ['mail.com', 'Mail.com', 'atmx-mail-com', 'https://www.mail.com'],
             ['aol.com', 'AOL', 'atmx-aol', 'http://webmail.aol.com'],
             ['t-com.hr', 'T-Com Komunikator', 'atmx-tcom-hr', 'https://komunikator.tportal.hr/komunikator/'],
-            ['iskon.hr', 'Iskon', 'atmx-iskonhr', 'http://user.net.hr/'],
+            ['iskon.hr', 'Iskon', 'atmx-iskonhr', 'https://webmail.iskon.hr'],
             ['mail.ru', 'Mail.ru', 'atmx-mailru', 'https://e.mail.ru/login'],
         ];
     }
