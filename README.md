@@ -1,5 +1,6 @@
 # MXLogin
-[![Latest Stable Version](https://poser.pugx.org/atomasevic/mxlogin/v/stable)](https://packagist.org/packages/atomasevic/mxlogin) [![Total Downloads](https://poser.pugx.org/atomasevic/mxlogin/downloads)](https://packagist.org/packages/atomasevic/mxlogin) [![Latest Unstable Version](https://poser.pugx.org/atomasevic/mxlogin/v/unstable)](https://packagist.org/packages/atomasevic/mxlogin) [![License](https://poser.pugx.org/atomasevic/mxlogin/license)](https://packagist.org/packages/atomasevic/mxlogin)
+[![Build Status](https://travis-ci.org/atomasevic/mxlogin.svg?branch=master)](https://travis-ci.org/atomasevic/mxlogin) [![Latest Stable Version](https://poser.pugx.org/atomasevic/mxlogin/v/stable)](https://packagist.org/packages/atomasevic/mxlogin) [![Total Downloads](https://poser.pugx.org/atomasevic/mxlogin/downloads)](https://packagist.org/packages/atomasevic/mxlogin) [![License](https://poser.pugx.org/atomasevic/mxlogin/license)](https://packagist.org/packages/atomasevic/mxlogin)
+<br />
 Improve your registration/signup pages with links to user's email provider inbox. <br />
 Don't just tell users to check their Gmail - give them a link. 
 
