@@ -11,6 +11,15 @@ namespace atomasevic\MXLogin;
 class MXLogin
 {
 
+    private $mxProviderManager = null;
+
+    public function __construct()
+    {
+        if(is_null($this->mxProviderManager)){
+            $this->mxProviderManager = new MXProviderManager();
+        }
+    }
+
     /**
      * Get data for email provider.
      *
@@ -27,9 +36,8 @@ class MXLogin
         $mxHosts = [];
         $mxWeight = [];
         dns_get_mx($domain, $mxHosts, $mxWeight);
-        $provider = new MXLoginUrls();
 
-        return $provider->getLoginData($this->extractMXDomain($mxHosts[0]));
+        return $this->mxProviderManager->getProviderLoginData($this->extractMXDomain($mxHosts[0]));
     }
 
     /**

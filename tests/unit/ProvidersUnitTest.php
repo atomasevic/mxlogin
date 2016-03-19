@@ -27,13 +27,13 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
     }
 
     /**
-     * @var MXLoginUrls
+     * @var MXProviderManager
      */
-    private $mxLoginUrls;
+    private $mxProviderManager;
 
     protected function _before()
     {
-        $this->mxLoginUrls = new MXLoginUrls();
+        $this->mxProviderManager = new MXProviderManager();
     }
 
     public function _after()
@@ -60,7 +60,7 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
             'code' => $expectedCode,
             'loginUrl' => $expectedLoginUrl
         ];
-        $loginData = $this->mxLoginUrls->getLoginData($mxDomain);
+        $loginData = $this->mxProviderManager->getProviderLoginData($mxDomain);
         $this->assertEquals($expectedLoginData, $loginData);
     }
 
@@ -111,7 +111,7 @@ class ProvidersUnitTest extends \Codeception\TestCase\Test
 
     public function testGetLoginData_GivenNotSupportedMxDomain_ExpectsResultToBeNull()
     {
-        $loginData = $this->mxLoginUrls->getLoginData('noooooooooo.com');
+        $loginData = $this->mxProviderManager->getProviderLoginData('noooooooooo.com');
         $this->assertNull($loginData);
     }
 }
