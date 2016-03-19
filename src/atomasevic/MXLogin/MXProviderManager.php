@@ -24,7 +24,7 @@ class MXProviderManager
         }
 
         if(!count($validProviders)){
-            throw new \Error("No valid provider classes found in providers folder.");
+            throw new \Error("No valid provider classes found in providers folder.", 101);
         }
 
         return $validProviders;
