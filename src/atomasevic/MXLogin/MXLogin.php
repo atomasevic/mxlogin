@@ -2,80 +2,62 @@
 
 namespace atomasevic\MXLogin;
 
-    /**
-     * MXLogin
-     * Improve your registration/signup pages with links to user's email provider inbox.
-     * Author: Antun Tomasevic (atomasevic@gmail.com) 2016
-     */
-
-/*
-(MIT License)
-Copyright (C) 2014 by TTRGroup
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+/**
+* MXLogin
+* Improve your registration/signup pages with links to user's email provider inbox.
+* Author: Antun Tomasevic (atomasevic@gmail.com) 2016
 */
 
 class MXLogin
 {
 
-    /**
-     * Email to process
-     * @var null
-     */
-    protected $email = null;
+    private $mxProviderManager = null;
 
-    /**
-     * Instantiate object, set email
-     * @param $email
-     * @return self
-     */
-    public function __construct($email = null)
+    public function __construct()
     {
-       $this->setEmail($email);
-    }
-
-    /**
-     * Set email for MX lookup
-     * @param null $email
-     */
-    public function setEmail($email = null){
-        $this->email = $email;
+        if(is_null($this->mxProviderManager)){
+            $this->mxProviderManager = new MXProviderManager();
+        }
     }
 
     /**
      * Get data for email provider.
+     *
      * @param $email
      * @return array|null
+     * @throws \Error
      */
-    public function search($email = null)
+    public function search($email)
     {
-        //Added for backwards compatibility
-        $email = $email == null ? $this->email : $email;
-
+        if(!$this->validEmail($email)){
+            throw new \Error("Email is not valid.", 201);
+        }
         $domain = $this->getDomain($email);
         $mxHosts = [];
-        $mxWeight = [];
-        dns_get_mx($domain, $mxHosts, $mxWeight);
-        $provider = new MXLoginUrls();
+        dns_get_mx($domain, $mxHosts);
 
-        return $provider->getLoginData($this->extractMXDomain($mxHosts[0]));
+        if(!count($mxHosts)){
+            throw new \Error("Domain does not exist.", 202);
+        }
+
+        return $this->mxProviderManager->getProviderLoginData($this->extractMXDomain($mxHosts[0]));
+    }
+
+    /**
+     * Just a basic check for pattern user@domain.tld
+     *
+     * @param $email
+     * @return int
+     */
+    private function validEmail($email)
+    {
+        $validEmailPattern = '/^\S{1,}@\S{1,}[.]\S{1,}$/';
+        return preg_match($validEmailPattern, $email);
     }
 
     /**
      * Get domain from email
+     *
      * @param $email
      * @return string
      */
@@ -89,6 +71,7 @@ class MXLogin
      * Extract top level domain from MX record
      * This domain will be used to resolve mapping
      * from domain to MXProvider class.
+     *
      * @param $mxRecord
      * @return string
      */
@@ -99,12 +82,4 @@ class MXLogin
         return implode('.', [$mxParts[$partsCount-2], $mxParts[$partsCount-1]]);
     }
 
-    /**
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->search()['loginUrl'];
-    }
 }

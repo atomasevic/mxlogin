@@ -2,36 +2,63 @@
 
 namespace atomasevic\MXLogin;
 
-class MXProviderBase
+abstract class MXProviderBase
 {
+
+    /**
+     * Array of MX domains this provider
+     * will respond to.
+     *
+     * To get a MX domain, check MX records for domain
+     * and strip everything but top level domain.
+     * Sample:
+     *      In your terminal:
+     *      $ host -t MX gmail.com
+     *
+     *      gmail.com MX lookup, resolved with
+     *      gmail-smtp-in.l.google.com
+     *
+     *      So our mxDomains property will have
+     *      array(
+     *          'google.com'
+     *      )
+     *
+     * @return array
+     */
+    abstract public function getMXDomains();
+
     /**
      * Provider name
-     * @var string
+     *
+     * @return string
      */
-    public $name;
+    abstract public function getName();
 
     /**
      * Provider unique code
-     * @var string
+     *
+     * @return string
      */
-    public $code;
+    abstract public function getCode();
 
     /**
      * Provider login url
-     * @var string
+     *
+     * @return string
      */
-    public $loginUrl;
+    abstract public function getLoginUrl();
 
     /**
      * Return provider data
+     *
      * @return array
      */
     public function getData()
     {
         return [
-            'name'  => $this->name,
-            'code'  => $this->code,
-            'loginUrl'  => $this->loginUrl
+            'name'  => $this->getName(),
+            'code'  => $this->getCode(),
+            'loginUrl'  => $this->getLoginUrl()
         ];
     }
 

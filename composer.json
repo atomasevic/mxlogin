@@ -1,7 +1,6 @@
 {
   "name": "atomasevic/mxlogin",
   "type": "library",
-  "version": "0.1.1",
   "description": "Improve your registration/signup pages with links to user's email provider inbox.",
   "keywords": ["email", "registration", "gmail", "hotmail"],
   "license": "MIT",
