@@ -30,14 +30,14 @@ class MXLogin
     public function search($email)
     {
         if(!$this->validEmail($email)){
-            throw new \Error("Email is not valid.", 201);
+            throw new \Error("Email format is not valid.", 201);
         }
         $domain = $this->getDomain($email);
         $mxHosts = [];
         dns_get_mx($domain, $mxHosts);
 
         if(!count($mxHosts)){
-            throw new \Error("Domain does not exist.", 202);
+            throw new \Error("Email domain does not exist.", 202);
         }
 
         return $this->mxProviderManager->getProviderLoginData($this->extractMXDomain($mxHosts[0]));
