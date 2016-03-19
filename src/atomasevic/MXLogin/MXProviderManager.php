@@ -46,7 +46,9 @@ class MXProviderManager
 
     public function __construct()
     {
-        $this->fillMap();
+        if(!count($this->map)){
+            $this->fillMap();
+        }
     }
 
     public function getProviderLoginData($mxDomain)
