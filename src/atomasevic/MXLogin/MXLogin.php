@@ -34,8 +34,7 @@ class MXLogin
         }
         $domain = $this->getDomain($email);
         $mxHosts = [];
-        $mxWeight = [];
-        dns_get_mx($domain, $mxHosts, $mxWeight);
+        dns_get_mx($domain, $mxHosts);
 
         if(!count($mxHosts)){
             throw new \Error("Domain does not exist.", 202);
