@@ -32,7 +32,7 @@ Besides login urls, you can make sure your users didn't do a typo (gimail.com in
 or add to your project's composer.json
 
     "require": {
-        "atomasevic/mxlogin": "~1.0.0"
+        "atomasevic/mxlogin": "~1.0.1"
     }
 
 # How to use

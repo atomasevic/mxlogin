@@ -2,6 +2,8 @@
 
 namespace atomasevic\MXLogin;
 
+use Exception;
+
 define('MX_PROVIDERS_DIR', __DIR__ . '/providers');
 
 class MXProviderManager
@@ -24,7 +26,7 @@ class MXProviderManager
         }
 
         if(!count($validProviders)){
-            throw new \Error("No valid provider classes found in providers folder.", 101);
+            throw new Exception("No valid provider classes found in providers folder.", 101);
         }
 
         return $validProviders;

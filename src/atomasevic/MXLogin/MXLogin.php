@@ -2,6 +2,8 @@
 
 namespace atomasevic\MXLogin;
 
+use Exception;
+
 /**
 * MXLogin
 * Improve your registration/signup pages with links to user's email provider inbox.
@@ -25,19 +27,19 @@ class MXLogin
      *
      * @param $email
      * @return array|null
-     * @throws \Error
+     * @throws Exception
      */
     public function search($email)
     {
         if(!$this->validEmail($email)){
-            throw new \Error("Email format is not valid.", 201);
+            throw new Exception("Email format is not valid.", 201);
         }
         $domain = $this->getDomain($email);
         $mxHosts = [];
         dns_get_mx($domain, $mxHosts);
 
         if(!count($mxHosts)){
-            throw new \Error("Email domain does not exist.", 202);
+            throw new Exception("Email domain does not exist.", 202);
         }
 
         return $this->mxProviderManager->getProviderLoginData($this->extractMXDomain($mxHosts[0]));
